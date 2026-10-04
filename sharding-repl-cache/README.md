@@ -6,7 +6,7 @@ docker compose up -d
 
 ## Инициализация и заполнение данными
 
-### Скриптом (нейронка сделала)
+### Скриптом (нейронка помогла с ним)
 
 ```bash
 ./scripts/mongo-init.sh
@@ -93,13 +93,7 @@ db.helloDoc.countDocuments()
 EOF
 ```
 
-## Проверка кол-ва документов на шардах:
-
-### Через API (нейронка ручку сделала):
-
-Откройте в браузере http://localhost:8080/helloDoc/stats
-
-### Через mongo
+## Проверка кол-ва документов на шардах через mongo
 
 ```bash
 docker compose exec -T shard1_1 mongosh "mongodb://shard1_1:27018,shard1_2:27018,shard1_3:27018/?replicaSet=shard1" --quiet <<EOF
@@ -126,4 +120,3 @@ done
 ```
 
 Второй и третий запросы должны выполняться быстрее 0.100 секунды по условию задания
-

@@ -217,9 +217,7 @@ services:
 
   pymongo_api:
     container_name: pymongo_api
-    build: 
-      context: api_app
-      dockerfile: Dockerfile
+    image: kazhem/pymongo_api:1.0.0
     depends_on:
       - mongos_router
       - redis
